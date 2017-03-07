@@ -1,0 +1,20 @@
+{
+  "name": "JobOfferEquity",
+  "version": "1.0.0",
+  "description": "1 page app to help people understand their job offer equity. Built with JS and React, and a Node/Express server, and MongoDB.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ollynov/understanding-job-offer-equity.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ollynov/understanding-job-offer-equity/issues"
+  },
+  "homepage": "https://github.com/Ollynov/understanding-job-offer-equity#readme"
+}
