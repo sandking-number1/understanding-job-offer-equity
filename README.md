@@ -12,3 +12,32 @@ idea: build a simple, non-authenticated, 1-page app (could be all JS or some MVC
 keeping the UI super simple, I believe the core coding could be done in 4-5 hours as an exercise.
 
 Additionally, if you are familiar with a JS graphing library (or service) you could graph the vesting and these events over time against the personal fully diluted % of ownership
+
+
+
+Usage
+---
+
+Start the development server with this command:
+
+```
+npm start
+```
+
+
+
+Setup
+---
+
+```
+npm install
+```
+
+
+
+Compile
+---
+
+```
+npm run compile
+```
