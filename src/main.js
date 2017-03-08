@@ -1,11 +1,7 @@
-console.log('Hello There!');
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Counter from './Counter';
+import Form from './Form.js';
 
 document.addEventListener('DOMContentLoaded', function() {
-  ReactDOM.render(
-    React.createElement(Counter),
-    document.getElementById('mount')
-  );
+  ReactDOM.render(<Form />, document.getElementById('mount'));
 });
