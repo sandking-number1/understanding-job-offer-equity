@@ -1,4 +1,6 @@
 import React from 'react';
+import Graph from './Graph.js';
+import $ from "jquery";
 
 class Form extends React.Component {
   constructor() {
@@ -18,6 +20,10 @@ class Form extends React.Component {
       'Finally, at how many months is your cliff? (Enter 12 for 1 year)'
     ];
     this.handleClick = this.handleClick.bind(this);
+  }
+
+  componentDidMount() {
+    console.log($('.pieID--micro-skills .pie-chart__legend span'))
   }
 
   handleClick(e) {
@@ -53,6 +59,7 @@ class Form extends React.Component {
     if (this.state.count < 4) {
       return (
         <div>
+          <Graph />
           <h1 id='title'>Understand your equity as a new employee</h1>
           <input onKeyUp={this.handleClick}></input>
           <button></button>
@@ -62,6 +69,7 @@ class Form extends React.Component {
     } else {
       return (
         <div>
+          <Graph />
           <div>You will own {this.state.initialEmployeeShares/this.state.initialCompanyShares/this.state.vestingPeriod*100}% of the company after one year</div>
           <div>And it will take you the full vesting schedule of {this.state.vestingPeriod} years to own {this.state.initialEmployeeShares/this.state.initialCompanyShares*100}% of the company</div>
         </div>

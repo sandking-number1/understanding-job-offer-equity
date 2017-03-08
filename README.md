@@ -18,6 +18,7 @@ MVP 1
 - Enter in total number of shares in company
 - Display the percentage that you own
 - Make it look decent (responsvie with flexbox)
+√
 
 MVP 2
 - Hook up the data entered from form, into the graphs
