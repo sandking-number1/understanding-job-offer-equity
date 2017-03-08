@@ -20,13 +20,19 @@ MVP 1
 - Make it look decent (responsvie with flexbox)
 
 MVP 2
-- "But wait! Be sure to enter in likely valuations at next fundraising rounds (link the user to helpful resources)"
-- Enter in the next fundraising amount (perhaps include a default valuation depending on amount raised)
-- Show the new percentage owned, and the new $$ amount
+- Hook up the data entered from form, into the graphs
+- No need for graph 3 yet
 
 MVP 3
-- User enters vesting schedule, strike amount, and whether there is a cliff.
-- Make this into a form, with a 'next button'
+- Complete Graph 3 (need to take into account valuation of company)
+- Show dollar amount owned
+- Give text explanation for graph 3
+
+MVP 4
+- Tooltips on graph overlay showing percentage
+- Tooltips on titles of graphs with little info button
+- Additional details/requirements from email
+- Final styling
 
 Usage
 ---
