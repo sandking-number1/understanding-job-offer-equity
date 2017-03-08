@@ -13,7 +13,20 @@ keeping the UI super simple, I believe the core coding could be done in 4-5 hour
 
 Additionally, if you are familiar with a JS graphing library (or service) you could graph the vesting and these events over time against the personal fully diluted % of ownership
 
+MVP 1
+- Enter in number of shares in grant
+- Enter in total number of shares in company
+- Display the percentage that you own
+- Make it look decent (responsvie with flexbox)
 
+MVP 2
+- "But wait! Be sure to enter in likely valuations at next fundraising rounds (link the user to helpful resources)"
+- Enter in the next fundraising amount (perhaps include a default valuation depending on amount raised)
+- Show the new percentage owned, and the new $$ amount
+
+MVP 3
+- User enters vesting schedule, strike amount, and whether there is a cliff.
+- Make this into a form, with a 'next button'
 
 Usage
 ---

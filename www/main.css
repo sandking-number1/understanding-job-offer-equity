@@ -1,0 +1,13 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  flex-wrap: wrap;
+  background-color: #56b3a3;
+}
+
+#title {
+  font-size: 28px;
+  font-family: 'Fjalla One', sans-serif;
+}
