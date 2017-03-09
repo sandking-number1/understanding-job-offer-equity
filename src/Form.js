@@ -12,7 +12,9 @@ class Form extends React.Component {
       vestingPeriod: 0,
       cliffPeriod: 0,
       initialCompanyValuation: 0,
-      lastFundingStage: 'none'
+      lastFundingStage: 'None',
+      yourLikelySharePercentage: 0,
+      companyLikelyValue: 0
     };
 
     this.allMessages = [
@@ -25,7 +27,6 @@ class Form extends React.Component {
     ];
     this.handleClick = this.handleClick.bind(this);
   }
-
 
   handleClick(e) {
     e.preventDefault();
@@ -60,9 +61,24 @@ class Form extends React.Component {
           lastFundingStage: e.target.value,
           count: this.state.count+1
         })
+        this.createLikelyDistribution();
       }
       e.target.value = '';
     }
+  }
+
+  createLikelyDistribution() {
+    const options = ['Seed', 'SeriesA', 'SeriesB', 'SeriesC'];
+    const idx = options.indexOf(this.state.lastFundingStage);
+
+    // this newAmountOfShares variable is an estimation. If your current company is at seed stage, you will get diluted 4X, if series C, then nothing.
+    const newAmountOfCompanyShares = this.state.initialCompanyShares * (4-idx);
+    const yourLikelySharePercentage = ((this.state.initialEmployeeShares / newAmountOfCompanyShares) * 100).toFixed(2);
+    const companyLikelyValue = (4-idx) * 3 * this.state.initialCompanyValuation;
+    this.setState({
+      yourLikelySharePercentage: yourLikelySharePercentage,
+      companyLikelyValue: companyLikelyValue
+    })
   }
 
 
@@ -93,13 +109,13 @@ class Form extends React.Component {
       return (
         <div>
           <h1>Understanding Employee Equity</h1>
-          <Graph initialEmployeeShares={this.state.initialEmployeeShares} initialCompanyShares={this.state.initialCompanyShares} vestingPeriod={this.state.vestingPeriod} cliffPeriod={this.state.cliffPeriod} lastFundingStage={this.state.lastFundingStage}/>
-          <div>You will own {(((this.state.initialEmployeeShares/this.state.vestingPeriod*(this.state.cliffPeriod/12))/this.state.initialCompanyShares)*100).toFixed(2)}% after {(this.state.cliffPeriod/12).toFixed(1)} years (nothing before then). This has a dollar value of ${Math.round((this.state.initialEmployeeShares/this.state.vestingPeriod*(this.state.cliffPeriod/12))/this.state.initialCompanyShares*this.state.initialCompanyValuation).toLocaleString()
+          <Graph initialEmployeeShares={this.state.initialEmployeeShares} initialCompanyShares={this.state.initialCompanyShares} vestingPeriod={this.state.vestingPeriod} cliffPeriod={this.state.cliffPeriod} lastFundingStage={this.state.lastFundingStage} yourLikelySharePercentage={this.state.yourLikelySharePercentage}/>
+          <div>You will own {(((this.state.initialEmployeeShares/this.state.vestingPeriod*(this.state.cliffPeriod/12))/this.state.initialCompanyShares)*100).toFixed(2)}% after {(this.state.cliffPeriod/12).toFixed(1)} years (nothing before then), with a dollar value of ${Math.round((this.state.initialEmployeeShares/this.state.vestingPeriod*(this.state.cliffPeriod/12))/this.state.initialCompanyShares*this.state.initialCompanyValuation).toLocaleString()
 }.</div>
           <br/>
 
-          <div>It will take you the full vesting schedule of {this.state.vestingPeriod} years to own {this.state.initialEmployeeShares/this.state.initialCompanyShares*100}% of the company, which has a value of ${Math.round(this.state.initialEmployeeShares/this.state.initialCompanyShares*this.state.initialCompanyValuation).toLocaleString()}</div>
-          <div>However, after {this.props.vestingPeriod} years, with further rounds of investment, your percent ownership will likely drop to around __ %; but would have a value of $__val__. </div>
+          <div>It will take you the full vesting schedule of {this.state.vestingPeriod} years to own {(this.state.initialEmployeeShares/this.state.initialCompanyShares*100).toFixed(2)}% of the company, which has a value of ${Math.round(this.state.initialEmployeeShares/this.state.initialCompanyShares*this.state.initialCompanyValuation).toLocaleString()}</div><br />
+          <div>However, after {this.state.vestingPeriod} years (and further rounds of investment), the more likely outcome is that your ownership will be diluted to ~ {this.state.yourLikelySharePercentage}%; but would have a value of ${(this.state.yourLikelySharePercentage/100*this.state.companyLikelyValue).toLocaleString()}. </div>
         </div>
       );
     }

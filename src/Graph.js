@@ -8,8 +8,7 @@ class Graph extends React.Component {
     this.state = {
       investorShares: 0,
       founderShares: 0,
-      employeePool: 0,
-      yourSharePercentage: 0
+      companyPool: 0,
     };
   }
 
@@ -114,10 +113,17 @@ class Graph extends React.Component {
 
   createLikelyDistribution() {
     const options = ['Seed', 'SeriesA', 'SeriesB', 'SeriesC'];
-    const idx = options.indexOf(this.props.lastFundingStage);
-    // this newAmountOfShares variable is an estimation. If your current company is at seed stage, you will get diluted 4X, if series C, then nothing.
-    const newAmountOfShares = this.props.initialCompanyShares * (4-idx);
-    this.state.yourSharePercentage = ((this.props.initialEmployeeShares / newAmountOfShares) * 100).toFixed(2)
+
+    const totalShares = 100 / this.props.yourLikelySharePercentage * this.props.initialEmployeeShares
+    const investorShares = totalShares / 2;
+    const founderShares = totalShares / 4;
+    const companyPool = totalShares - this.props.initialEmployeeShares - founderShares - investorShares;
+    console.log('about to setState like wild ', totalShares, investorShares, founderShares)
+    this.setState({
+      investorShares: investorShares,
+      founderShares: founderShares,
+      companyPool: companyPool
+    })
   }
 
 
@@ -152,7 +158,7 @@ class Graph extends React.Component {
               <ul className="pie-chart__legend">
                 <li><em>Investors</em><span>{this.state.investorShares}</span></li>
                 <li><em>Founders</em><span>{this.state.founderShares}</span></li>
-                <li><em>Company Pool</em><span>{this.state.employeePool}</span></li>
+                <li><em>Company Pool</em><span>{this.state.companyPool}</span></li>
                 <li><em>Your Shares</em><span>{this.props.initialEmployeeShares}</span></li>
               </ul>
             </div>
