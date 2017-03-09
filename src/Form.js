@@ -1,5 +1,6 @@
 import React from 'react';
 import Graph from './Graph.js';
+import Tooltip from './Tooltip.js'
 import $ from "jquery";
 
 class Form extends React.Component {
@@ -114,8 +115,11 @@ class Form extends React.Component {
 }.</div>
           <br/>
 
-          <div>It will take you the full vesting schedule of {this.state.vestingPeriod} years to own {(this.state.initialEmployeeShares/this.state.initialCompanyShares*100).toFixed(2)}% of the company, which has a value of ${Math.round(this.state.initialEmployeeShares/this.state.initialCompanyShares*this.state.initialCompanyValuation).toLocaleString()}</div><br />
-          <div>However, after {this.state.vestingPeriod} years (and further rounds of investment), the more likely outcome is that your ownership will be diluted to ~ {this.state.yourLikelySharePercentage}%; but would have a value of ${(this.state.yourLikelySharePercentage/100*this.state.companyLikelyValue).toLocaleString()}. </div>
+          <div >It will take you the full vesting schedule of {this.state.vestingPeriod} years to own {(this.state.initialEmployeeShares/this.state.initialCompanyShares*100).toFixed(2)}% of the company, which has a value of ${Math.round(this.state.initialEmployeeShares/this.state.initialCompanyShares*this.state.initialCompanyValuation).toLocaleString()}</div><br />
+          <div className="placement">
+            <div>However, after {this.state.vestingPeriod} years (and further rounds of investment), the more likely outcome is that your ownership will be diluted to ~ {this.state.yourLikelySharePercentage}%; but would have a value of ${(this.state.yourLikelySharePercentage/100*this.state.companyLikelyValue).toLocaleString()}. </div>
+            <Tooltip />
+          </div>
         </div>
       );
     }

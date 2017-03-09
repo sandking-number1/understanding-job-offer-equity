@@ -128,16 +128,20 @@ body * {
 
 /*// TOOLTIP //
 */
+.placement {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
 
 .container {
-  background-color: #fff;
   border-radius: 4px;
-  box-shadow: 0 1px 2px 0 rgba(153, 153, 153, 0.35);
-  padding: 1em;
   border: 1px solid #eee;
-  display: block;
-  width: 200px;
+  width: 20px;
+  height: 15px;
   margin: 0 auto;
+  display: inline;
 }
 
 .label {

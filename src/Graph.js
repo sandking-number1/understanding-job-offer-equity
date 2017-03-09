@@ -21,7 +21,6 @@ class Graph extends React.Component {
     this.createPieCharts();
   }
 
-
   sliceSize(dataNum, dataTotal) {
     return (dataNum / dataTotal) * 360;
   }
@@ -119,7 +118,6 @@ class Graph extends React.Component {
     const investorShares = totalShares / 2;
     const founderShares = totalShares / 4;
     const companyPool = totalShares - this.props.initialEmployeeShares - founderShares - investorShares;
-    console.log('about to setState like wild ', totalShares, investorShares, founderShares)
     this.setState({
       investorShares: investorShares,
       founderShares: founderShares,
@@ -153,7 +151,7 @@ class Graph extends React.Component {
             </div>
           </div>
           <div className="pieID--more-likely pie-chart--wrapper">
-            <h2>More Likely Scenario</h2><Tooltip />
+            <h2>More Likely Scenario</h2>
             <div className="pie-chart">
               <div className="pie-chart__pie"></div>
               <ul className="pie-chart__legend">
