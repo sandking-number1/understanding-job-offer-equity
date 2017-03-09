@@ -66,7 +66,7 @@ class Form extends React.Component {
         <div>
           <h1>Understanding Employee Equity</h1>
           <Graph initialEmployeeShares={this.state.initialEmployeeShares} initialCompanyShares={this.state.initialCompanyShares} vestingPeriod={this.state.vestingPeriod} cliffPeriod={this.state.cliffPeriod}/>
-          <div>You will own {this.state.initialEmployeeShares/this.state.initialCompanyShares/this.state.vestingPeriod*100*this.state.cliffPeriod}% of the company after {this.state.cliffPeriod} year (nothing before then).</div>
+          <div>You will own {(((this.state.initialEmployeeShares/this.state.vestingPeriod*(this.state.cliffPeriod/12))/this.state.initialCompanyShares)*100).toFixed(2)}% after {(this.state.cliffPeriod/12).toFixed(1)} years (nothing before then).</div>
           <div>And it will take you the full vesting schedule of {this.state.vestingPeriod} years to own {this.state.initialEmployeeShares/this.state.initialCompanyShares*100}% of the company</div>
         </div>
       );
