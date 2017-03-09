@@ -6,7 +6,9 @@ class Graph extends React.Component {
   constructor() {
     super();
     this.state = {
-      sampleData: [50, 50, 89, 99, 220, 500, 55, 89]
+      skills: [50, 50, 89, 99, 220, 500, 55, 89],
+      categories: [1,2],
+      operations: [50, 300, 500]
     };
   }
 
@@ -70,11 +72,28 @@ class Graph extends React.Component {
       ];
     color = this.shuffle( color );
 
-    this.state.sampleData.forEach(function(data) {
-      // here we need to push from our state
-      listData.push(data)
-      // listData.push(Number($(this).html()));
-    });
+    if (id === '.pieID--micro-skills') {
+      this.state.skills.forEach(function(data) {
+        // here we need to push from our state
+        listData.push(data)
+        // listData.push(Number($(this).html()));
+      });
+    }
+    if (id === '.pieID--categories') {
+      this.state.categories.forEach(function(data) {
+        // here we need to push from our state
+        listData.push(data)
+        // listData.push(Number($(this).html()));
+      });
+    }
+    if (id === '.pieID--operations') {
+      this.state.operations.forEach(function(data) {
+        // here we need to push from our state
+        listData.push(data)
+        // listData.push(Number($(this).html()));
+      });
+    }
+
 
     for(i = 0; i < listData.length; i++) {
       listTotal += listData[i];
