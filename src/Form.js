@@ -56,50 +56,15 @@ class Form extends React.Component {
     if (this.state.count < 4) {
       return (
         <div>
-          <Graph initialEmployeeShares={this.state.initialEmployeeShares} initialCompanyShares={this.state.initialCompanyShares} vestingPeriod={this.state.vestingPeriod} cliffPeriod={this.state.cliffPeriod}/>          <h1 id='title'>{this.allMessages[this.state.count]}</h1>
+          <h1>Understanding Employee Equity</h1>
+          <h3>{this.allMessages[this.state.count]}</h3>
           <input onKeyUp={this.handleClick}></input>
         </div>
       );
     } else {
       return (
         <div>
-          <div className="wrapper">
-            <h1>Understanding Employee Equity</h1>
-            <div className="pie-charts">
-              <div className="pieID--micro-skills pie-chart--wrapper">
-                <h2>After Cliff</h2>
-                <div className="pie-chart">
-                  <div className="pie-chart__pie"></div>
-                  <ul className="pie-chart__legend">
-                    <li><em>Rest of the Company</em><span>5000</span></li>
-                    <li><em>Your shares</em><span>50</span></li>
-                  </ul>
-                </div>
-              </div>
-              <div className="pieID--categories pie-chart--wrapper">
-                <h2>After Full Vest</h2>
-                <div className="pie-chart">
-                  <div className="pie-chart__pie"></div>
-                  <ul className="pie-chart__legend">
-                    <li><em>Rest of the Company</em><span>5000</span></li>
-                    <li><em>Your Shares</em><span>200</span></li>
-                  </ul>
-                </div>
-              </div>
-              <div className="pieID--operations pie-chart--wrapper">
-                <h2>More Likely Scenario</h2>
-                <div className="pie-chart">
-                  <div className="pie-chart__pie"></div>
-                  <ul className="pie-chart__legend">
-                    <li><em>Investors</em><span>486</span></li>
-                    <li><em>Founders</em><span>156</span></li>
-                    <li><em>Company Pool</em><span>315</span></li>
-                    <li><em>Your share</em><span>43</span></li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
+          <h1>Understanding Employee Equity</h1>
           <Graph initialEmployeeShares={this.state.initialEmployeeShares} initialCompanyShares={this.state.initialCompanyShares} vestingPeriod={this.state.vestingPeriod} cliffPeriod={this.state.cliffPeriod}/>
           <div>You will own {this.state.initialEmployeeShares/this.state.initialCompanyShares/this.state.vestingPeriod*100}% of the company after one year</div>
           <div>And it will take you the full vesting schedule of {this.state.vestingPeriod} years to own {this.state.initialEmployeeShares/this.state.initialCompanyShares*100}% of the company</div>

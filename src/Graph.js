@@ -129,7 +129,42 @@ class Graph extends React.Component {
 
   render() {
     return (
-      null
+      <div className="wrapper">
+            <div className="pie-charts">
+              <div className="pieID--micro-skills pie-chart--wrapper">
+                <h2>After Cliff</h2>
+                <div className="pie-chart">
+                  <div className="pie-chart__pie"></div>
+                  <ul className="pie-chart__legend">
+                    <li><em>Rest of the Company</em><span>5000</span></li>
+                    <li><em>Your shares</em><span>50</span></li>
+                  </ul>
+                </div>
+              </div>
+              <div className="pieID--categories pie-chart--wrapper">
+                <h2>After Full Vest</h2>
+                <div className="pie-chart">
+                  <div className="pie-chart__pie"></div>
+                  <ul className="pie-chart__legend">
+                    <li><em>Rest of the Company</em><span>5000</span></li>
+                    <li><em>Your Shares</em><span>200</span></li>
+                  </ul>
+                </div>
+              </div>
+              <div className="pieID--operations pie-chart--wrapper">
+                <h2>More Likely Scenario</h2>
+                <div className="pie-chart">
+                  <div className="pie-chart__pie"></div>
+                  <ul className="pie-chart__legend">
+                    <li><em>Investors</em><span>486</span></li>
+                    <li><em>Founders</em><span>156</span></li>
+                    <li><em>Company Pool</em><span>315</span></li>
+                    <li><em>Your share</em><span>43</span></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+      </div>
     );
   }
 }
