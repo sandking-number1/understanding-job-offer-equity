@@ -12,7 +12,6 @@ class Graph extends React.Component {
 
   componentDidMount() {
     this.createPieCharts();
-    console.log(this.props)
   }
 
 
@@ -116,7 +115,7 @@ class Graph extends React.Component {
               <div className="pie-chart__pie"></div>
               <ul className="pie-chart__legend">
                 <li><em>Rest of the Company</em><span>{this.props.initialCompanyShares}</span></li>
-                <li><em>Your Shares</em><span>{this.props.initialEmployeeShares/this.props.vestingPeriod*(this.props.cliffPeriod/12)}</span></li>
+                <li><em>Your Shares</em><span>{Math.round(this.props.initialEmployeeShares/this.props.vestingPeriod*(this.props.cliffPeriod/12))}</span></li>
               </ul>
             </div>
           </div>
