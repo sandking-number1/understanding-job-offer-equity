@@ -74,27 +74,31 @@ class Graph extends React.Component {
       ];
     color = this.shuffle( color );
 
-    if (id === '.pieID--micro-skills') {
-      this.state.skills.forEach(function(data) {
-        // here we need to push from our state
-        listData.push(data)
-        // listData.push(Number($(this).html()));
-      });
-    }
-    if (id === '.pieID--categories') {
-      this.state.categories.forEach(function(data) {
-        // here we need to push from our state
-        listData.push(data)
-        // listData.push(Number($(this).html()));
-      });
-    }
-    if (id === '.pieID--operations') {
-      this.state.operations.forEach(function(data) {
-        // here we need to push from our state
-        listData.push(data)
-        // listData.push(Number($(this).html()));
-      });
-    }
+    $(dataElement+" span").each(function() {
+      listData.push(Number($(this).html()));
+    });
+
+    // if (id === '.pieID--micro-skills') {
+    //   this.state.skills.forEach(function(data) {
+    //     // here we need to push from our state
+    //     listData.push(data)
+    //     // listData.push(Number($(this).html()));
+    //   });
+    // }
+    // if (id === '.pieID--categories') {
+    //   this.state.categories.forEach(function(data) {
+    //     // here we need to push from our state
+    //     listData.push(data)
+    //     // listData.push(Number($(this).html()));
+    //   });
+    // }
+    // if (id === '.pieID--operations') {
+    //   this.state.operations.forEach(function(data) {
+    //     // here we need to push from our state
+    //     listData.push(data)
+    //     // listData.push(Number($(this).html()));
+    //   });
+    // }
 
 
     for(i = 0; i < listData.length; i++) {
@@ -136,8 +140,8 @@ class Graph extends React.Component {
                 <div className="pie-chart">
                   <div className="pie-chart__pie"></div>
                   <ul className="pie-chart__legend">
-                    <li><em>Rest of the Company</em><span>5000</span></li>
-                    <li><em>Your shares</em><span>50</span></li>
+                    <li><em>Rest of the Company</em><span>{this.props.initialCompanyShares}</span></li>
+                    <li><em>Your Shares</em><span>{this.props.initialEmployeeShares/this.props.vestingPeriod*(this.props.cliffPeriod/12)}</span></li>
                   </ul>
                 </div>
               </div>
@@ -146,8 +150,8 @@ class Graph extends React.Component {
                 <div className="pie-chart">
                   <div className="pie-chart__pie"></div>
                   <ul className="pie-chart__legend">
-                    <li><em>Rest of the Company</em><span>5000</span></li>
-                    <li><em>Your Shares</em><span>200</span></li>
+                    <li><em>Rest of the Company</em><span>{this.props.initialCompanyShares}</span></li>
+                    <li><em>Your Shares</em><span>{this.props.initialEmployeeShares}</span></li>
                   </ul>
                 </div>
               </div>
