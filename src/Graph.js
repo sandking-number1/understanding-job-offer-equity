@@ -3,8 +3,8 @@ import { findDOMNode } from 'react-dom';
 import $ from "jquery";
 
 class Graph extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       skills: [50, 50, 89, 99, 220, 500, 55, 89],
       categories: [1,2],
@@ -12,8 +12,10 @@ class Graph extends React.Component {
     };
   }
 
+
   componentDidMount() {
     this.createPieCharts();
+    console.log(this.props)
   }
 
 
@@ -126,9 +128,9 @@ class Graph extends React.Component {
 
 
   render() {
-      return (
-        <div> HERRO</div>
-      );
+    return (
+      null
+    );
   }
 }
 export default Graph;
