@@ -115,8 +115,8 @@ class Graph extends React.Component {
     const options = ['Seed', 'SeriesA', 'SeriesB', 'SeriesC'];
 
     const totalShares = 100 / this.props.yourLikelySharePercentage * this.props.initialEmployeeShares
-    const investorShares = totalShares / 2;
-    const founderShares = totalShares / 4;
+    const investorShares = Math.round(totalShares / 2);
+    const founderShares = Math.round(totalShares / 4);
     const companyPool = totalShares - this.props.initialEmployeeShares - founderShares - investorShares;
     this.setState({
       investorShares: investorShares,
