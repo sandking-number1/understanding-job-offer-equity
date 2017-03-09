@@ -11,7 +11,8 @@ class Form extends React.Component {
       initialCompanyShares: 0,
       vestingPeriod: 0,
       cliffPeriod: 0,
-      initialCompanyValuation: 0
+      initialCompanyValuation: 0,
+      lastFundingStage: 'none'
     };
 
     this.allMessages = [
@@ -53,6 +54,11 @@ class Form extends React.Component {
           initialCompanyValuation: e.target.value,
           count: this.state.count+1
         })
+      } else if (this.state.count === 5) {
+        this.setState({
+          lastFundingStage: e.target.value,
+          count: this.state.count+1
+        })
       }
       e.target.value = '';
     }
@@ -68,11 +74,25 @@ class Form extends React.Component {
           <input onKeyUp={this.handleClick}></input>
         </div>
       );
+    } else if (this.state.count === 5) {
+      return (
+        <div>
+          <h1>Understanding Employee Equity</h1>
+          <h3>{this.allMessages[this.state.count]}</h3>
+          <select onKeyUp={this.handleClick}>
+            <option value="None">None</option>
+            <option value="Seed">Seed</option>
+            <option value="SeriesA">Series A</option>
+            <option value="SeriesB">Series B</option>
+            <option value="SeriesC">Series C</option>
+          </select>
+        </div>
+      );
     } else {
       return (
         <div>
           <h1>Understanding Employee Equity</h1>
-          <Graph initialEmployeeShares={this.state.initialEmployeeShares} initialCompanyShares={this.state.initialCompanyShares} vestingPeriod={this.state.vestingPeriod} cliffPeriod={this.state.cliffPeriod}/>
+          <Graph initialEmployeeShares={this.state.initialEmployeeShares} initialCompanyShares={this.state.initialCompanyShares} vestingPeriod={this.state.vestingPeriod} cliffPeriod={this.state.cliffPeriod} lastFundingStage={this.state.lastFundingStage}/>
           <div>You will own {(((this.state.initialEmployeeShares/this.state.vestingPeriod*(this.state.cliffPeriod/12))/this.state.initialCompanyShares)*100).toFixed(2)}% after {(this.state.cliffPeriod/12).toFixed(1)} years (nothing before then). This has a dollar value of ${Math.round((this.state.initialEmployeeShares/this.state.vestingPeriod*(this.state.cliffPeriod/12))/this.state.initialCompanyShares*this.state.initialCompanyValuation).toLocaleString()
 }.</div>
           <br/>

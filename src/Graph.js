@@ -12,6 +12,7 @@ class Graph extends React.Component {
 
   componentDidMount() {
     this.createPieCharts();
+    console.log('here it is ', this.props.lastFundingStage)
   }
 
 
