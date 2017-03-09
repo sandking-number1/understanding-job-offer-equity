@@ -20,7 +20,8 @@ class Form extends React.Component {
       'Great. How many total outstanding shares are there in the company?',
       'Over how many years will your stocks vest?',
       'At how many months is your cliff? (Enter 12 for 1 year)',
-      'Finally, what is the current company valuation?'
+      'What is the current company valuation?',
+      'Finally, what was the last round that was raised?'
     ];
     this.handleClick = this.handleClick.bind(this);
   }
@@ -69,16 +70,16 @@ class Form extends React.Component {
     if (this.state.count < 5) {
       return (
         <div>
-          <h1>Understanding Employee Equity</h1>
-          <h3>{this.allMessages[this.state.count]}</h3>
-          <input onKeyUp={this.handleClick}></input>
+          <br /><h1>Understanding Employee Equity</h1><br />
+          <h3>{this.allMessages[this.state.count]}</h3><br />
+          <input type="number" onKeyUp={this.handleClick}></input>
         </div>
       );
     } else if (this.state.count === 5) {
       return (
         <div>
-          <h1>Understanding Employee Equity</h1>
-          <h3>{this.allMessages[this.state.count]}</h3>
+          <br /><h1>Understanding Employee Equity</h1><br />
+          <h3>{this.allMessages[this.state.count]}</h3><br />
           <select onKeyUp={this.handleClick}>
             <option value="None">None</option>
             <option value="Seed">Seed</option>
@@ -98,6 +99,7 @@ class Form extends React.Component {
           <br/>
 
           <div>It will take you the full vesting schedule of {this.state.vestingPeriod} years to own {this.state.initialEmployeeShares/this.state.initialCompanyShares*100}% of the company, which has a value of ${Math.round(this.state.initialEmployeeShares/this.state.initialCompanyShares*this.state.initialCompanyValuation).toLocaleString()}</div>
+          <div>However, after {this.props.vestingPeriod} years, with further rounds of investment, your percent ownership will likely drop to around __ %; but would have a value of $__val__. </div>
         </div>
       );
     }
