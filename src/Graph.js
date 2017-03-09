@@ -6,9 +6,6 @@ class Graph extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      skills: [50, 50, 89, 99, 220, 500, 55, 89],
-      categories: [1,2],
-      operations: [50, 300, 500]
     };
   }
 
@@ -78,28 +75,6 @@ class Graph extends React.Component {
       listData.push(Number($(this).html()));
     });
 
-    // if (id === '.pieID--micro-skills') {
-    //   this.state.skills.forEach(function(data) {
-    //     // here we need to push from our state
-    //     listData.push(data)
-    //     // listData.push(Number($(this).html()));
-    //   });
-    // }
-    // if (id === '.pieID--categories') {
-    //   this.state.categories.forEach(function(data) {
-    //     // here we need to push from our state
-    //     listData.push(data)
-    //     // listData.push(Number($(this).html()));
-    //   });
-    // }
-    // if (id === '.pieID--operations') {
-    //   this.state.operations.forEach(function(data) {
-    //     // here we need to push from our state
-    //     listData.push(data)
-    //     // listData.push(Number($(this).html()));
-    //   });
-    // }
-
 
     for(i = 0; i < listData.length; i++) {
       listTotal += listData[i];
@@ -125,49 +100,49 @@ class Graph extends React.Component {
   }
 
   createPieCharts() {
-    this.createPie('.pieID--micro-skills' );
-    this.createPie('.pieID--categories' );
-    this.createPie('.pieID--operations' );
+    this.createPie('.pieID--after-cliff' );
+    this.createPie('.pieID--after-full-vest' );
+    this.createPie('.pieID--more-likely' );
   }
 
 
   render() {
     return (
       <div className="wrapper">
-            <div className="pie-charts">
-              <div className="pieID--micro-skills pie-chart--wrapper">
-                <h2>After Cliff</h2>
-                <div className="pie-chart">
-                  <div className="pie-chart__pie"></div>
-                  <ul className="pie-chart__legend">
-                    <li><em>Rest of the Company</em><span>{this.props.initialCompanyShares}</span></li>
-                    <li><em>Your Shares</em><span>{this.props.initialEmployeeShares/this.props.vestingPeriod*(this.props.cliffPeriod/12)}</span></li>
-                  </ul>
-                </div>
-              </div>
-              <div className="pieID--categories pie-chart--wrapper">
-                <h2>After Full Vest</h2>
-                <div className="pie-chart">
-                  <div className="pie-chart__pie"></div>
-                  <ul className="pie-chart__legend">
-                    <li><em>Rest of the Company</em><span>{this.props.initialCompanyShares}</span></li>
-                    <li><em>Your Shares</em><span>{this.props.initialEmployeeShares}</span></li>
-                  </ul>
-                </div>
-              </div>
-              <div className="pieID--operations pie-chart--wrapper">
-                <h2>More Likely Scenario</h2>
-                <div className="pie-chart">
-                  <div className="pie-chart__pie"></div>
-                  <ul className="pie-chart__legend">
-                    <li><em>Investors</em><span>486</span></li>
-                    <li><em>Founders</em><span>156</span></li>
-                    <li><em>Company Pool</em><span>315</span></li>
-                    <li><em>Your share</em><span>43</span></li>
-                  </ul>
-                </div>
-              </div>
+        <div className="pie-charts">
+          <div className="pieID--after-cliff pie-chart--wrapper">
+            <h2>After Cliff</h2>
+            <div className="pie-chart">
+              <div className="pie-chart__pie"></div>
+              <ul className="pie-chart__legend">
+                <li><em>Rest of the Company</em><span>{this.props.initialCompanyShares}</span></li>
+                <li><em>Your Shares</em><span>{this.props.initialEmployeeShares/this.props.vestingPeriod*(this.props.cliffPeriod/12)}</span></li>
+              </ul>
             </div>
+          </div>
+          <div className="pieID--after-full-vest pie-chart--wrapper">
+            <h2>After Full Vest</h2>
+            <div className="pie-chart">
+              <div className="pie-chart__pie"></div>
+              <ul className="pie-chart__legend">
+                <li><em>Rest of the Company</em><span>{this.props.initialCompanyShares}</span></li>
+                <li><em>Your Shares</em><span>{this.props.initialEmployeeShares}</span></li>
+              </ul>
+            </div>
+          </div>
+          <div className="pieID--more-likely pie-chart--wrapper">
+            <h2>More Likely Scenario</h2>
+            <div className="pie-chart">
+              <div className="pie-chart__pie"></div>
+              <ul className="pie-chart__legend">
+                <li><em>Investors</em><span>486</span></li>
+                <li><em>Founders</em><span>156</span></li>
+                <li><em>Company Pool</em><span>315</span></li>
+                <li><em>Your share</em><span>43</span></li>
+              </ul>
+            </div>
+          </div>
+        </div>
       </div>
     );
   }
