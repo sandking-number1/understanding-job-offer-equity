@@ -1,6 +1,7 @@
 import React from 'react';
 import { findDOMNode } from 'react-dom';
 import $ from "jquery";
+import Tooltip from './Tooltip.js'
 
 class Graph extends React.Component {
   constructor(props) {
@@ -152,7 +153,7 @@ class Graph extends React.Component {
             </div>
           </div>
           <div className="pieID--more-likely pie-chart--wrapper">
-            <h2>More Likely Scenario</h2>
+            <h2>More Likely Scenario</h2><Tooltip />
             <div className="pie-chart">
               <div className="pie-chart__pie"></div>
               <ul className="pie-chart__legend">
